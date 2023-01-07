@@ -57,4 +57,15 @@ echo "log-facility=/dev/null" >> /etc/dnsmasq.conf
 rm -rf /tmp/luci-modulecache/
 rm -f /tmp/luci-indexcache
 
+
+# network
+uci set network.lan.ipaddr='10.8.8.1'  
+uci set network.lan.proto='static' 
+uci set network.lan.type='bridge'   
+uci set network.lan.ifname='eth0' 
+uci set network.lan.netmask='255.255.255.0'  
+uci set network.lan.gateway='10.8.8.1'  
+uci set network.lan.dns='10.8.8.1'  
+uci commit network
+
 exit 0
